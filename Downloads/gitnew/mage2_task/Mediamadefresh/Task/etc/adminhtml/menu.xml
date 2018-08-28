@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mediamadefresh_Task::task" title="Task" module="Mediamadefresh_Task" sortOrder="30" resource="Mediamadefresh_Task::task"/>
+        <add id="Mediamadefresh_Task::task_manage" title="All Task" module="Mediamadefresh_Task" sortOrder="10" parent="Mediamadefresh_Task::task" action="task/index/" resource="Mediamadefresh_Task::manage"/>
+    </menu>
+</config>
