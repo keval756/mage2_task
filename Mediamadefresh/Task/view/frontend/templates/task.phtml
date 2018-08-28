@@ -1,0 +1,26 @@
+<?php $_task = $this->getCollection(); ?>
+<?php if ($_task->getSize()): ?>
+<div class="task_list_view">
+    <?php foreach ($_task as $taskItem): ?>
+        <div id="item_<?php echo $taskItem->getId() ?>" class="task_list_item">
+            <h2>
+                <a href="<?php echo $this->getItemUrl($taskItem) ?>">
+                    <?php echo $this->escapeHtml($taskItem->getTitle()) ?>
+                </a>
+            </h2>
+
+            <div class="task_item_subtitle">
+                <?php echo $this->formatDate($taskItem->getPublishedAt()) ?> |
+                <?php echo $this->escapeHtml($taskItem->getAuthor()) ?>
+            </div>
+
+            <?php if ($imageUrl = $this->getImageUrl($taskItem, 100)): ?>
+               <p><img src="<?php echo $imageUrl ?>" alt="<?php echo $this->escapeHtml($taskItem->getTitle()); ?>" /></p>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</div>
+<?php echo $this->getPager() ?>
+<?php else: ?>
+    <div class="message info empty"><span><?php echo __('You have no Task.'); ?></span></div>
+<?php endif ?>
